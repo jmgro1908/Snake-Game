@@ -12,6 +12,16 @@ FOOD_DIRECTIONS = [
     vector(0, 10),   # up
     vector(0, -10),  # down
 ]
+colores = ["blue", "green","purple","orange","yellow" ]
+indice_snake = randint(0,4)
+indice_fruta = randint(0,4)
+
+color_snake = colores[indice_snake]
+
+while indice_snake == indice_fruta:
+    indice_fruta= randint(0,4)
+
+color_fruta = colores[indice_fruta]
 
 def change(x, y):
     "Change snake direction."
@@ -62,9 +72,9 @@ def move():
     clear()
 
     for body in snake:
-        square(body.x, body.y, 9, 'black')
+        square(body.x, body.y, 9, color_snake)
 
-    square(food.x, food.y, 9, 'green')
+    square(food.x, food.y, 9, color_fruta)
     update()
     ontimer(move, 100)
 
